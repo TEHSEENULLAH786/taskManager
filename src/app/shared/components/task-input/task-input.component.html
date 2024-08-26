@@ -1,0 +1,25 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-input-form">
+  <mat-form-field appearance="fill" class="custom-form-field ">
+    <mat-label>Task Title</mat-label>
+    <input matInput formControlName="title" placeholder="Enter task title" />
+    <mat-error *ngIf="taskForm.get('title')?.hasError('required')">Title is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="custom-form-field">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Enter task description"></textarea>
+    <mat-error *ngIf="taskForm.get('description')?.hasError('required')">Description is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="custom-form-field">
+    <mat-label>Due Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate" placeholder="Choose a due date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="taskForm.get('dueDate')?.hasError('required')">Due Date is required</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid" class="custom-submit-button">
+		<span>{{ isEditMode ? 'Edit Task' : 'Add Task' }}</span>
+  </button>
+</form>

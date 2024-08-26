@@ -1,0 +1,126 @@
+.task-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  margin-bottom: 8px;
+
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #777;
+}
+
+.id-date {
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  color: #617870;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+}
+
+.more-options-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #D5DBDA;
+  background-color: white;
+  color: #616161; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.more-options-button mat-icon {
+  font-size: 16px;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-content {
+  margin: 16px 0;
+}
+
+.task-content h3 {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #2d413d;
+}
+
+.task-content p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19.6px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #697370;
+	width: 280px;
+}
+
+.task-footer {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+	justify-content: space-between;
+}
+
+.task-footer .user {
+	display: flex;
+	align-items: center;
+}
+
+.task-footer .user-assign {
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+	color: #2D413D;
+
+}
+
+.user-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #00796b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+
+
+.username {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 8px;
+	border: 1px solid #D5DBDA;
+	border-radius: 100px;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	color: #333;
+	line-height: 1.5;
+	letter-spacing: -0.01em;
+	background-color: #fff; 
+}

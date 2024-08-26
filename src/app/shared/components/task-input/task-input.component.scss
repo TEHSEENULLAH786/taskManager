@@ -1,0 +1,38 @@
+.task-input-form {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.custom-form-field {
+  margin-bottom: 20px;
+	width: 100%;
+
+  mat-label {
+    font-weight: bold;
+    color: #2d413d;
+  }
+
+  input, textarea {
+    font-size: 16px;
+    border-radius: 8px;
+  }
+}
+
+.custom-submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #00796b;
+  color: #ffffff;
+  border-radius: 8px;
+  text-transform: none;
+
+  &:disabled {
+    background-color: #c8c8c8;
+  }
+}

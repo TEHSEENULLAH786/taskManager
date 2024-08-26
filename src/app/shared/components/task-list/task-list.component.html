@@ -1,0 +1,101 @@
+<div cdkDropListGroup class="task-columns">
+  <div cdkDropList [cdkDropListData]="openTasks" (cdkDropListDropped)="drop($event)" class="task-column open">
+    <div class="header-top">
+      <h3 class="open-title">Open ({{ openTasks.length }})</h3>
+      <div>
+        <button mat-icon-button class="add-icon-button" (click)="openAddDialog('Open')">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menuOpen" class="more-options-button">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+    </div>
+    <ng-container *ngIf="showOpenTasks">
+      <ng-container *ngFor="let task of openTasks">
+        <app-task-item [task]="task" cdkDrag (deleteTask)="onDeleteTask($event)" (editTask)="openEditDialog($event)"></app-task-item>
+      </ng-container>
+    </ng-container>
+    <button class="add-task-button" (click)="openAddDialog('Open')"><span class="plus-sign">+</span>Add New Task</button>
+  </div>
+
+  <div cdkDropList [cdkDropListData]="inProgressTasks" (cdkDropListDropped)="drop($event)" class="task-column in-progress">
+    <div class="header-top">
+      <h3 class="in-progress-title">In Progress ({{ inProgressTasks.length }})</h3>
+      <div>
+        <button mat-icon-button class="add-icon-button" (click)="openAddDialog('In Progress')">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menuInProgress" class="more-options-button">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+    </div>
+    <ng-container *ngIf="showInProgressTasks">
+      <ng-container *ngFor="let task of inProgressTasks">
+        <app-task-item [task]="task" cdkDrag (deleteTask)="onDeleteTask($event)" (editTask)="openEditDialog($event)"></app-task-item>
+      </ng-container>
+    </ng-container>
+    <button class="add-task-button" (click)="openAddDialog('In Progress')"><span class="plus-sign">+</span>Add New Task</button>
+  </div>
+
+  <div cdkDropList [cdkDropListData]="closedTasks" (cdkDropListDropped)="drop($event)" class="task-column closed">
+    <div class="header-top">
+      <h3 class="closed-title">Closed ({{ closedTasks.length }})</h3>
+      <div>
+        <button mat-icon-button class="add-icon-button" (click)="openAddDialog('Closed')">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menuClosed" class="more-options-button">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+    </div>
+    <ng-container *ngIf="showClosedTasks">
+      <ng-container *ngFor="let task of closedTasks">
+        <app-task-item [task]="task" cdkDrag (deleteTask)="onDeleteTask($event)" (editTask)="openEditDialog($event)"></app-task-item>
+      </ng-container>
+    </ng-container>
+    <button class="add-task-button" (click)="openAddDialog('Closed')"><span class="plus-sign">+</span>Add New Task</button>
+  </div>
+
+  <!-- Hide menus -->
+  <mat-menu #menuOpen="matMenu" xPosition="before" yPosition="below" class="custom-menu">
+    <button mat-menu-item (click)="toggleVisibility('Open')">
+      <div class="menu-header">
+        <div class="icon">
+					<img [src]="isHidden('Open') ? 'assets/images/eye-on.svg' : 'assets/images/eye-off.svg'" alt="Toggle Visibility">
+        </div>
+        <div class="icon-text">
+          <span>{{ isHidden('Open') ? 'Unhide' : 'Hide' }}</span>
+        </div>
+      </div>
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuInProgress="matMenu" xPosition="before" yPosition="below" class="custom-menu">
+    <button mat-menu-item (click)="toggleVisibility('In Progress')">
+      <div class="menu-header">
+        <div class="icon">
+					<img [src]="isHidden('In Progress') ? 'assets/images/eye-on.svg' : 'assets/images/eye-off.svg'" alt="Toggle Visibility">
+        </div>
+        <div class="icon-text">
+          <span>{{ isHidden('In Progress') ? 'Unhide' : 'Hide' }}</span>
+        </div>
+      </div>
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuClosed="matMenu" xPosition="before" yPosition="below" class="custom-menu">
+    <button mat-menu-item (click)="toggleVisibility('Closed')">
+      <div class="menu-header">
+        <div class="icon">
+					<img [src]="isHidden('Closed') ? 'assets/images/eye-on.svg' : 'assets/images/eye-off.svg'" alt="Toggle Visibility">
+        </div>
+        <div class="icon-text">
+          <span>{{ isHidden('Closed') ? 'Unhide' : 'Hide' }}</span>
+        </div>
+      </div>
+    </button>
+  </mat-menu>
+</div>

@@ -1,0 +1,38 @@
+<div class="task-card" cdkDrag>
+	<div class="task-header">
+		<div class="id-date">
+			<span>ID: {{ task.id }}</span> • <span>{{ task.date | date: 'dd/MM/yyyy' }}</span>
+		</div>
+		<button mat-icon-button [matMenuTriggerFor]="menu" class="more-options-button">
+			<mat-icon>more_horiz</mat-icon>
+		</button>
+		<mat-menu #menu="matMenu" xPosition="before" yPosition="below" class="custom-menu">
+			<button mat-menu-item (click)="onEdit()">
+				<mat-icon>edit	</mat-icon>
+				<span>Edit</span>
+			</button>
+			<button mat-menu-item (click)="onDelete()">
+				<mat-icon>delete_outline</mat-icon>
+				<span>Delete</span>
+			</button>
+		</mat-menu>
+
+	</div>
+	<div class="task-content">
+		<h3>{{ task.title }}</h3>
+		<p>{{ task.description }}</p>
+	</div>
+
+	<div class="task-footer">
+		<div class="user">
+
+			<div class="user-badge">{{ task.userInitials }}</div>
+			<div class="user-assign">{{ task.assignedUser }}</div>
+		</div>
+		<div class="username">
+			<img src="assets/images/link.svg">
+			{{ task.username }}
+		</div>
+	</div>
+
+</div>
